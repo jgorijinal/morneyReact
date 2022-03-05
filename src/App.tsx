@@ -1,17 +1,9 @@
 import React from 'react';
 import {HashRouter as Router, Switch, Route, Link, Redirect} from 'react-router-dom';
-import styled from 'styled-components';
-import Nav from 'components/Nav';
-import Layout from 'components/Layout';
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-`
-const Main = styled.main`
-  flex-grow: 1;
-  overflow: auto;
-`
+import Money from 'views/Money';
+import Tags from 'views/Tags';
+import Statistic from 'views/Statistic';
+
 function App() {
   return (
     <Router>
@@ -40,28 +32,6 @@ function NoMatch(){
     </div>
   )
 }
-function Statistic() {
-  return (
-   <Layout>
-     <h2>统计页面</h2>
-   </Layout>
-  )
-}
 
-function Tags() {
-  return (
-    <Layout>
-      <h2>标签页面</h2>
-    </Layout>
-  )
-}
-
-function Money() {
-  return (
-    <Layout>
-      <h2>记账页面</h2>
-    </Layout>
-  )
-}
 
 export default App;
