@@ -35,3 +35,10 @@ body {
   fill: currentColor;
   overflow: hidden;
 }
+button{
+  font-family: inherit;
+}
+input:focus{
+  outline: none;
+  font-family: inherit;
+}
