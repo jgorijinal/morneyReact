@@ -3,6 +3,7 @@ import {HashRouter as Router, Switch, Route, Link, Redirect} from 'react-router-
 import Money from 'views/Money';
 import Tags from 'views/Tags';
 import Statistic from 'views/Statistic';
+import NoMatch from 'views/NoMatch';
 
 function App() {
   return (
@@ -25,13 +26,7 @@ function App() {
     </Router>
   );
 }
-function NoMatch(){
-  return (
-    <div>
-      {'页面不存在哦 , 你丫输入的什么鬼东西!'}
-    </div>
-  )
-}
+
 
 
 export default App;
