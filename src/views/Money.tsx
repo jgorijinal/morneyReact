@@ -4,6 +4,11 @@ import styled from 'styled-components';
 import Icon from '../components/Icon';
 
 const TagsSection = styled.section`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
   background: #17181c;
   padding: 12px 16px;
   ol {margin: 0 -12px;
@@ -63,11 +68,79 @@ const CategorySection = styled.section`
  }
 `
 const NumberPadSection = styled.section `
+  display: flex;
+  flex-direction: column;
 
+  .output {
+    background: #17181c;
+    color: #6ec5bd;
+    font-size: 40px;
+    line-height: 72px;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 16px;
+  }
+
+  .pad {
+    background: #39393b;
+
+    button {
+      font-size: 18px;
+      color: #e1e1e3;
+      border-radius: 4px;
+      width: 25%;
+      height: 64px;
+      border: 1px solid #1f1f21;
+      background: #39393b;
+      float: left;
+
+      &:active {
+        background: #484849;
+      }
+
+      &.ok {
+        float: right;
+        height: 128px;
+        background: linear-gradient(to right, #e1b187, orange);
+        color: white;
+
+        &:active {
+          background: #c5891a;
+        }
+      }
+
+      &.zero {
+        width: 50%;
+      }
+
+      &:first-child, &:nth-child(5), &:nth-child(9), &:nth-child(13) {
+        background: #38383a;
+      }
+
+      &:nth-child(2), &:nth-child(6), &:nth-child(10), &:nth-child(14) {
+        background: #3f3f42;
+      }
+
+      &:nth-child(3), &:nth-child(7), &:nth-child(11) {
+        background: #444448;
+      }
+
+      &:nth-child(4), &:nth-child(8) {
+        background: #444448;
+      }
+    }
+
+  }
+`
+
+const MyLayout = styled(Layout)`
+display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `
 function Money() {
   return (
-    <Layout>
+    <MyLayout>
       <TagsSection>
         <ol>
           <li>衣</li>
@@ -77,12 +150,29 @@ function Money() {
           <li>衣</li>
           <li>食奥术大师多多</li>
           <li>住</li>
+          <li>衣</li>
+          <li>食</li>
+          <li>住</li>
+          <li>行</li>
+          <li>衣</li> <li>衣</li>
+          <li>食</li>
+          <li>住</li>
+          <li>行</li>
+          <li>衣</li> <li>衣</li>
+          <li>食</li>
+          <li>住</li>
+          <li>行</li>
+          <li>衣</li> <li>衣</li>
+          <li>食</li>
+          <li>住</li>
+          <li>行</li>
+          <li>衣</li>
         </ol>
-        <button><Icon name="add"></Icon>新增标签</button>
+        <button><Icon name="add" />新增标签</button>
       </TagsSection>
       <NotesSection>
         <label>
-          <span><Icon name="notes"></Icon>备注</span>
+          <span><Icon name="notes" />备注</span>
           <input type="text" placeholder={'在这里添加备注'}/>
         </label>
       </NotesSection>
@@ -93,8 +183,8 @@ function Money() {
         </ol>
       </CategorySection>
       <NumberPadSection>
-        <div></div>
-        <div>
+        <div className={"output"}>100</div>
+        <div className={'pad clearfix'}>
           <button>7</button>
           <button>8</button>
           <button>9</button>
@@ -106,12 +196,12 @@ function Money() {
           <button>1</button>
           <button>2</button>
           <button>3</button>
-          <button>确定</button>
-          <button>.</button>
-          <button>0</button>
+          <button className={'ok'}>确定</button>
+            <button>.</button>
+            <button className={'zero'}>0</button>
         </div>
       </NumberPadSection>
-    </Layout>
+    </MyLayout>
   )
 }
 export default Money

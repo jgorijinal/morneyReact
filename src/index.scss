@@ -42,3 +42,8 @@ input:focus{
   outline: none;
   font-family: inherit;
 }
+.clearfix::after {
+  display: block;
+  content:'';
+  clear: both;
+}
