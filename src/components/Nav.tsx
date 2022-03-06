@@ -4,10 +4,11 @@ import React from 'react';
 import Icon from './Icon';
 
 const NavWrapper = styled.nav`
-  background: rgba(30, 29, 29, 0.91);
+  background: #1e1f23;
   color: #9d9999;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   display: flex;
+
   a {
     width: 33.3333333%;
     display: flex;
