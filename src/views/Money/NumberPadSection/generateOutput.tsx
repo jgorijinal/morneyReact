@@ -19,6 +19,7 @@ switch (text) {
     if(output.indexOf('.') >= 0){
       return output
     }else{
+      console.log('xxxxxxxxxx')
      return output + text
     }
   case 'del' :

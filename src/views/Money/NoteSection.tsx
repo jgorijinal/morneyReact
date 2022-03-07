@@ -17,19 +17,25 @@ const Wrapper = styled.section`
     }
   }
 `
-const NoteSection :React.FC = (props)=>{
-  const [note , setNote] = useState<string>('')
+
+type Props ={
+  value:string,
+  onChange:(inputValue : string)=>void
+}
+const NoteSection :React.FC<Props>= (props)=>{
+  const notes = props.value
+  // const [note , setNote] = useState<string>('')      //数据!!!!! , 变得没用了
   const refInput = useRef<HTMLInputElement>(null)
   const onBlur =()=>{
     if (refInput.current !== null){
-      setNote(refInput.current.value)
+      props.onChange(refInput.current.value)
     }
   }
   return(
     <Wrapper>
       <label>
         <span><Icon name="notes" />备注</span>
-        <input type="text" placeholder={'在这里添加备注'} defaultValue={note} onBlur={onBlur}  ref={refInput}/>
+        <input type="text" placeholder={'在这里添加备注'} defaultValue={notes} onBlur={onBlur}  ref={refInput}/>
       </label>
     </Wrapper>
   )

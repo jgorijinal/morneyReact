@@ -1,23 +1,34 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Wrapper from './NumberPadSection/Wrapper';
 import generateOutput from './NumberPadSection/generateOutput';
 
-const NumberPadSection: React.FC = (props) => {
-  const [output , _setOutput] = useState<string>('0')   //output设置成了string
-  const setOutput = (output:string)=>{  //再封装_setOutput , 改正真正有用的setOutput
+type Props= {
+  value :string,
+  onChange:(amount:string)=>void,
+  onOk?:()=>void
+}
+const NumberPadSection: React.FC<Props> = (props) => {
+  // const [output , _setOutput] = useState<string>('0')   //output设置成了string     数据!!!!!右边的没用了
+  const output = props.value.toString()
+  const setOutput = (output:string)=>{
+    let value
     if(output.length > 16){
-      return
+      value = output.slice(0,16)
     }else if(output.length === 0){
-      output = '0'
+      value = '0'
+    }else{
+      value = output
     }
-    _setOutput(output)
+    props.onChange(value)
   }
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent;
     if(text === null) return
     if (text === '确定') {
-      //ToDO
-      return
+      if(props.onOk) {
+        props.onOk()
+      }
+
     }
     if('1234567890.'.split('').concat(['del','C']).indexOf(text) >=0) {
       setOutput(generateOutput( text , output))

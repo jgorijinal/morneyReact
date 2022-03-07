@@ -29,18 +29,23 @@ const Wrapper = styled.section`
    }
  }
 `
-const CategorySection :React.FC= (props)=>{
+type Props = {
+  value:('-' |'+'),
+  onChange:(newCategory:('-' |'+'))=>void
+}
+const CategorySection :React.FC<Props> = (props)=>{
   const categoryMap = {'+':'收入' , '-':'支出'}
   // type X = typeof categoryMap
   // type Y = keyof X
   type Keys = keyof typeof categoryMap  //上面的简写
-  const [category , setCategory] = useState('-')
+  // const [category , setCategory] = useState('-')     //数据
+  const category = props.value
   const [categoryList] = useState<(Keys)[]>(['-','+'])
   return (
     <Wrapper>
       <ol>
         {categoryList.map(c => <li key={c}
-                                   onClick={()=>setCategory(c)}
+                                   onClick={()=>props.onChange(c)}
                                    className={category === c ? 'selected' : ''}
         >{categoryMap[c]}</li>)}
       </ol>

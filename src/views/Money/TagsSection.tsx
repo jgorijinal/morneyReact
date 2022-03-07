@@ -27,15 +27,22 @@ const Wrapper = styled.section`
     > svg {width: 1.5em;margin-right: 4px;}
     padding: 2px 4px;border-bottom: 1px solid #6d6e73;}
 `
-const TagsSection:React.FunctionComponent = ()=>{
+
+type Props = {
+  value :string[],
+  onChange:(newTag:string[]) => void
+}
+const TagsSection:React.FC<Props> = (props)=>{
+  const selectedTags = props.value
+
   const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
-  const [selectedTags ,setSelectedTags] =useState<string[]>([])
+  // const [selectedTags ,setSelectedTags] =useState<string[]>([]) //变得没用 , 数据有Money组件控制
   const  onToggleTag =(tag :string)=>{
     const index = selectedTags.indexOf(tag)
     if(index >= 0){    //存在的话
-      setSelectedTags(selectedTags.filter(t => t!== tag)) //用filter返回没有选中的作为新的数组
+      props.onChange(selectedTags.filter(t => t!== tag)) //用filter返回没有选中的作为新的数组
     }else {
-      setSelectedTags([...selectedTags , tag])
+      props.onChange([...selectedTags , tag])
     }
   }
   const onAddTag = ()=>{
