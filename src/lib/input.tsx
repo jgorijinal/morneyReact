@@ -39,7 +39,7 @@ const Input:React.FC<Props> = (props)=>{
   return (
     <Label>
       <span><Icon name="notes" />{props.label}</span>
-      <input  {...rest}/>
+      <input  {...rest} />
     </Label>
     )
 }

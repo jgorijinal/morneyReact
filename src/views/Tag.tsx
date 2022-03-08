@@ -17,6 +17,7 @@ const TopBar = styled.header`
   color:#d3d4d8;
   padding: 8px 16px;
   position: relative;
+  background: #1e1f23;
   >.text {
     position: absolute;
     left: 50%;
@@ -26,7 +27,9 @@ const TopBar = styled.header`
   >svg{
     width:1.5em;
   }
-  
+`
+const InputWrapper = styled.div`
+margin-top: 16px;
 `
 const Tag:React.FC = ()=>{
   const {tags,setTags ,findEditableTag} = useTags()
@@ -40,7 +43,10 @@ const Tag:React.FC = ()=>{
         <span className={"text"}>编辑标签</span>
         <Button>删除标签</Button>
       </TopBar>
-    <Input  label={'标签名'} placeholder={'请输入新的标签名:'}/>
+      <InputWrapper>
+        <Input  type={"text"} label={'标签名'} placeholder={'请输入新的标签名:'} defaultValue={editableTag.name}/>
+      </InputWrapper>
+
     </Layout>
   )
 }
