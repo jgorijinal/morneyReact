@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React, {useState} from 'react';
 import Icon from '../../components/Icon';
+import useTags from '../../useTags';
 
 const Wrapper = styled.section`
   flex-grow: 1;
@@ -34,8 +35,8 @@ type Props = {
 }
 const TagsSection:React.FC<Props> = (props)=>{
   const selectedTags = props.value
-
-  const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
+  const {tags , setTags} = useTags()
+  // const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
   // const [selectedTags ,setSelectedTags] =useState<string[]>([]) //变得没用 , 数据有Money组件控制
   const  onToggleTag =(tag :string)=>{
     const index = selectedTags.indexOf(tag)
