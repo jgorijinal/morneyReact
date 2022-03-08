@@ -22,17 +22,23 @@ const useTags = () => {
     return result
   }
   const updateTag = (id:number , obj:{name:string})=>{
-    const tag = findTag(id)
-    const index = findTagIndex(id)   //无 就是-1
-    let tagsClone = JSON.parse(JSON.stringify(tags))
-    tagsClone.splice(index , 1 , {id:id, name: obj.name})
+    const index = findTagIndex(id)     //获取我要改的tag的下标
+    let tagsClone = JSON.parse(JSON.stringify(tags))   //clone原来的tags , 因为数据不可变原则, 弄一个新的
+    tagsClone.splice(index , 1 , {id:id, name: obj.name})  //删除指定tag , 在添加新的tag
+    setTags(tagsClone)
+  }
+  const deleteTag = (id:number)=>{
+    const index = findTagIndex(id)     //获取我要删除的tag的下标
+    let tagsClone = JSON.parse(JSON.stringify(tags))   //clone原来的tags , 因为数据不可变原则, 弄一个新的
+    tagsClone.splice(index , 1 )  //删除指定tag
     setTags(tagsClone)
   }
   return {
     tags: tags,
     setTags: setTags,
     findTag : findTag,
-    updateTag:updateTag
+    updateTag:updateTag,
+    deleteTag:deleteTag
   };
 };
 export default useTags;

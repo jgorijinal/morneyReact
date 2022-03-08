@@ -31,25 +31,29 @@ const TopBar = styled.header`
 const InputWrapper = styled.div`
 margin-top: 16px;
 `
+
 const Tag:React.FC = ()=>{
-  const {tags,setTags ,findTag , updateTag } = useTags()
+  const {tags,setTags ,findTag , updateTag ,deleteTag } = useTags()
   console.log(tags)
   const paramsId = useParams<Params>().id
   const editableTag = findTag( parseInt(paramsId) )
+  const tagContent = (editableTag:{id:number,name:string})=>{
+    return (
+    <InputWrapper>
+      <Input  type={"text"} label={'标签名'} placeholder={'请输入新的标签名:'}
+              defaultValue={editableTag.name}
+              onChange={(e)=>{updateTag(editableTag.id , {name:e.target.value})}}
+      />
+    </InputWrapper>
+  )}
   return (
     <Layout>
       <TopBar>
         <Icon name={"left"} />
         <span className={"text"}>编辑标签</span>
-        <Button>删除标签</Button>
+        <Button onClick={()=>{deleteTag(editableTag.id)}}>删除标签</Button>
       </TopBar>
-      <InputWrapper>
-        <Input  type={"text"} label={'标签名'} placeholder={'请输入新的标签名:'}
-                defaultValue={editableTag.name}
-                onChange={(e)=>{updateTag(editableTag.id , {name:e.target.value})}}
-                />
-      </InputWrapper>
-
+      {editableTag ?  tagContent(editableTag) : <div>'tag已被删除'</div>}
     </Layout>
   )
 }
