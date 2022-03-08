@@ -30,36 +30,34 @@ const Wrapper = styled.section`
 `
 
 type Props = {
-  value :string[],
-  onChange:(newTag:string[]) => void
+  value :number[],
+  onChange:(newTagId:number[]) => void
 }
 const TagsSection:React.FC<Props> = (props)=>{
-  const selectedTags = props.value
+  const selectedTagIds = props.value
   const {tags , setTags} = useTags()
-  // const [tags,setTags] = useState<string[]>(['衣','食','住','行'])
-  // const [selectedTags ,setSelectedTags] =useState<string[]>([]) //变得没用 , 数据有Money组件控制
-  const  onToggleTag =(tag :string)=>{
-    const index = selectedTags.indexOf(tag)
-    if(index >= 0){    //存在的话
-      props.onChange(selectedTags.filter(t => t!== tag)) //用filter返回没有选中的作为新的数组
+  const  onToggleTag =(tagId :number)=>{
+    const index = selectedTagIds.indexOf(tagId)
+    if(index >= 0){
+      props.onChange(selectedTagIds.filter(t => t!== tagId))
     }else {
-      props.onChange([...selectedTags , tag])
+      props.onChange([...selectedTagIds , tagId])
     }
   }
   const onAddTag = ()=>{
     const tagName = window.prompt('请输入你要添加的标签')
     if (tagName !== null){
-      setTags([...tags , tagName])
+      setTags([...tags , {id:Math.random(),name:tagName }])
     }else{
       return
     }
   }
-  const getClass= (tag:string)=> selectedTags.indexOf(tag)>=0 ? 'selected': ''
+  const getClass= (tagId:number)=> selectedTagIds.indexOf(tagId)>=0 ? 'selected': ''
   return (
     <Wrapper>
       <ol>
         {tags.map(tag=>
-          <li key={tag} onClick={()=>onToggleTag(tag)} className={getClass(tag)}>{tag}</li>
+          <li key={tag.id} onClick={()=>onToggleTag(tag.id)} className={getClass(tag.id)}>{tag.name}</li>
         )}
       </ol>
       <button onClick={onAddTag}><Icon name="add" />新增标签</button>

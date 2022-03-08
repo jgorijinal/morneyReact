@@ -7,13 +7,13 @@ import {NumberPadSection} from './Money/NumberPadSection';
 import {NoteSection} from './Money/NoteSection';
 
 const MyLayout = styled(Layout)`
-display:flex;
+  display:flex;
   flex-direction: column;
   justify-content: flex-end;
 `
 function Money() {
 const [selected , setSelected] = useState({
-  tags :[] as string[],
+  tagIds :[] as number[],
   notes:'',
   category:'-' as ('-' | '+'),
   amount:'0'
@@ -26,8 +26,8 @@ const [selected , setSelected] = useState({
   }
   return (
     <MyLayout>
-      <TagsSection value={selected.tags}
-                   onChange={(tags)=>onChange({tags:tags})}
+      <TagsSection value={selected.tagIds}
+                   onChange={(tagIds)=>onChange({tagIds:tagIds})}
       />
       <NoteSection  value={selected.notes}
                    onChange={(notes)=>onChange( {notes :notes} )}
