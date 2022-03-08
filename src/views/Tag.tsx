@@ -32,10 +32,10 @@ const InputWrapper = styled.div`
 margin-top: 16px;
 `
 const Tag:React.FC = ()=>{
-  const {tags,setTags ,findEditableTag} = useTags()
+  const {tags,setTags ,findTag , updateTag } = useTags()
   console.log(tags)
   const paramsId = useParams<Params>().id
-  const editableTag = findEditableTag( parseInt(paramsId) )
+  const editableTag = findTag( parseInt(paramsId) )
   return (
     <Layout>
       <TopBar>
@@ -44,7 +44,10 @@ const Tag:React.FC = ()=>{
         <Button>删除标签</Button>
       </TopBar>
       <InputWrapper>
-        <Input  type={"text"} label={'标签名'} placeholder={'请输入新的标签名:'} defaultValue={editableTag.name}/>
+        <Input  type={"text"} label={'标签名'} placeholder={'请输入新的标签名:'}
+                defaultValue={editableTag.name}
+                onChange={(e)=>{updateTag(editableTag.id , {name:e.target.value})}}
+                />
       </InputWrapper>
 
     </Layout>
