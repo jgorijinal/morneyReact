@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background:#17181c ;
 `
 const Main = styled.main`
   flex-grow: 1;

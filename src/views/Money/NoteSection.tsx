@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Icon from '../../components/Icon';
-import React, {useRef, useState} from 'react';
+import React, {useRef} from 'react';
 
 const Wrapper = styled.section`
   border-bottom: 1px solid #26272b;
