@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, {ChangeEventHandler, useRef} from 'react';
+import React, {ChangeEventHandler} from 'react';
 import Input from '../../lib/input';
 const Wrapper = styled.section`
   border-bottom: 1px solid #26272b;

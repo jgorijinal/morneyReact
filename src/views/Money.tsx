@@ -27,7 +27,7 @@ const [selected , setSelected] = useState(defaultFormData)
       ...obj
     })
   }
-  const {records , addRecord} = useRecords()
+  const { addRecord} = useRecords()
   const submit = ()=>{
     if(selected.tagIds.length === 0) {
       alert('请至少选择一个标签')
@@ -39,7 +39,6 @@ const [selected , setSelected] = useState(defaultFormData)
   }
   return (
     <MyLayout>
-      {JSON.stringify(selected)}
       <TagsSection value={selected.tagIds}
                    onChange={(tagIds)=>onChange({tagIds:tagIds})}
       />

@@ -33,7 +33,7 @@ margin-top: 16px;
 `
 
 const Tag:React.FC = ()=>{
-  const {tags,setTags ,findTag , updateTag ,deleteTag } = useTags()
+  const {tags,findTag , updateTag ,deleteTag } = useTags()
   console.log(tags)
   const paramsId = useParams<Params>().id
   const editableTag = findTag( parseInt(paramsId) )
