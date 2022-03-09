@@ -1,5 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 import createId from 'lib/createId';
+import {useUpdate} from './useUpdate';
 
 //
 // const defaultTags = [
@@ -25,13 +26,7 @@ const useTags = () => {
     }
   } , [])
 
-  const count = useRef(0)
-  useEffect(()=>{count.current += 1} )
-  useEffect( ()=>{
-    if(count.current > 1){
-      window.localStorage.setItem('tags' , JSON.stringify(tags))
-    }
-  } , [tags])
+  useUpdate(()=>{window.localStorage.setItem('tags' , JSON.stringify(tags))} , tags )
 
   const findTag = (id:number) => tags.filter(tag => tag.id === id)[0]  //在这里直接封装编辑标签时用到的函数
   const updateTag = (id:number , obj:{name:string})=>{

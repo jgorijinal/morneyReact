@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import Icon from '../../components/Icon';
-import useTags from '../../useTags';
+import useTags from '../../Hooks/useTags';
 import createId from 'lib/createId';
 
 const Wrapper = styled.section`

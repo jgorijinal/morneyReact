@@ -10,6 +10,7 @@ const MyLayout = styled(Layout)`
   display:flex;
   flex-direction: column;
   justify-content: flex-end;
+  color: white; ///////////////////////////////////
 `
 function Money() {
 const [selected , setSelected] = useState({
@@ -26,6 +27,7 @@ const [selected , setSelected] = useState({
   }
   return (
     <MyLayout>
+      {JSON.stringify(selected)}
       <TagsSection value={selected.tagIds}
                    onChange={(tagIds)=>onChange({tagIds:tagIds})}
       />
