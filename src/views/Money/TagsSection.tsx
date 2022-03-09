@@ -36,21 +36,13 @@ type Props = {
 }
 const TagsSection:React.FC<Props> = (props)=>{
   const selectedTagIds = props.value
-  const {tags , setTags} = useTags()
+  const {tags , addTag} = useTags()
   const  onToggleTag =(tagId :number)=>{
     const index = selectedTagIds.indexOf(tagId)
     if(index >= 0){
       props.onChange(selectedTagIds.filter(t => t!== tagId))
     }else {
       props.onChange([...selectedTagIds , tagId])
-    }
-  }
-  const onAddTag = ()=>{
-    const tagName = window.prompt('请输入您要添加的标签名')
-    if (tagName !== null){
-      setTags([...tags , {id:createId(),name:tagName }])
-    }else{
-      return
     }
   }
   const getClass= (tagId:number)=> selectedTagIds.indexOf(tagId)>=0 ? 'selected': ''
@@ -61,7 +53,7 @@ const TagsSection:React.FC<Props> = (props)=>{
           <li key={tag.id} onClick={()=>onToggleTag(tag.id)} className={getClass(tag.id)}>{tag.name}</li>
         )}
       </ol>
-      <button onClick={onAddTag}><Icon name="add" />新增标签</button>
+      <button onClick={addTag}><Icon name="add" />新增标签</button>
     </Wrapper>
   )
 }
