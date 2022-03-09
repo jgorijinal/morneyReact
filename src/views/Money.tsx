@@ -29,7 +29,11 @@ const [selected , setSelected] = useState(defaultFormData)
   }
   const {records , addRecord} = useRecords()
   const submit = ()=>{
-      addRecord(selected)
+    if(selected.tagIds.length === 0) {
+      alert('请至少选择一个标签')
+      return
+    }
+    addRecord(selected)
     alert('保存成功')
     setSelected(defaultFormData)
   }
