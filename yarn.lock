@@ -1700,6 +1700,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/classnames@2.2.6":
+  version "2.2.6"
+  resolved "https://registry.npmmirror.com/@types/classnames/-/classnames-2.2.6.tgz#dbe8a666156d556ed018e15a4c65f08937c3f628"
+  integrity sha512-XHcYvVdbtAxVstjKxuULYqYaWIzHR15yr1pZj4fnGChuBVJlIAp9StJna0ZJNSgxPh4Nac2FL4JM3M11Tm6fqQ==
+
 "@types/connect-history-api-fallback@^1.3.5":
   version "1.3.5"
   resolved "https://registry.npmmirror.com/@types/connect-history-api-fallback/-/connect-history-api-fallback-1.3.5.tgz#d1f7a8a09d0ed5a57aee5ae9c18ab9b803205dae"
@@ -2961,6 +2966,11 @@ cjs-module-lexer@^1.0.0:
   version "1.2.2"
   resolved "https://registry.npmmirror.com/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz#9f84ba3244a512f3a54e5277e8eef4c489864e40"
   integrity sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==
+
+classnames@2.2.6:
+  version "2.2.6"
+  resolved "https://registry.npmmirror.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
 clean-css@^5.2.2:
   version "5.2.4"
