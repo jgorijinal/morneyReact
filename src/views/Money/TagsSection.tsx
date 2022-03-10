@@ -5,13 +5,16 @@ import useTags from '../../Hooks/useTags';
 
 const Wrapper = styled.section`
   flex-grow: 1;
+  overflow: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  //justify-content: flex-end;
   align-items: flex-start;
   background: #17181c;
   padding: 12px 16px;
-  ol {margin: 0 -12px;
+  ol {
+    margin: 0 -12px;
+    flex-grow: 1;
     li {
       display: inline-block;color: #d3d4d8;
       background: #36363f;font-size: 14px;margin: 8px 12px;
@@ -22,9 +25,8 @@ const Wrapper = styled.section`
       }
     }
   }
-
   button {display: flex;align-items: center;background: none;
-    border: none;color: #d3d4d8;cursor: pointer;margin-top:8px;
+    border: none;color:#6ec5bd;cursor: pointer;margin-top:8px;
     > svg {width: 1.5em;margin-right: 4px;}
     padding: 2px 4px;border-bottom: 1px solid #6d6e73;}
 `

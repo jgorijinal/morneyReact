@@ -9,7 +9,8 @@ const Wrapper = styled.div`
   background:#17181c ;
 `
 const Main = styled.main`
-  flex-grow: 1;
+  //flex-grow: 1;
+  height: 100%;
   overflow: auto;
 `
 const Layout = (props:any)=>{

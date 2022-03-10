@@ -36,7 +36,10 @@ const Item = styled.div`
     white-space: nowrap;
   }
 `;
-
+const Tip = styled.div ` 
+  color: white;
+  text-align: center;
+`
 function Statistic() {
   const [category, setCategory] = useState<('-' | '+')>('-');
   const {records} = useRecords();
@@ -60,8 +63,8 @@ function Statistic() {
   return (
     <Layout>
       <CategorySection value={category} onChange={v => setCategory(v)}/>
-
-      {array.map(([date, record] , index) => {
+      {records.length !== 0 ?
+        array.map(([date, record] , index) => {
         return (
           <div key={index}>
             <Wrapper>
@@ -84,6 +87,7 @@ function Statistic() {
 
         );
       })
+        : <Tip className={'tip'}>目前还没有记录 , 快去记一笔账哦~</Tip>
       }
     </Layout>
   );

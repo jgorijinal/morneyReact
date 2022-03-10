@@ -31,7 +31,11 @@ const TopBar = styled.header`
 const InputWrapper = styled.div`
 margin-top: 16px;
 `
-
+const Wrapper =  styled.div `
+  .alert{
+    color:white;
+  }
+`
 const Tag:React.FC = ()=>{
   const {tags,findTag , updateTag ,deleteTag } = useTags()
   console.log(tags)
@@ -57,7 +61,10 @@ const Tag:React.FC = ()=>{
         <span className={"text"}>编辑标签</span>
         <Button onClick={()=>{deleteTag(editableTag.id)}}>删除标签</Button>
       </TopBar>
-      {editableTag ?  tagContent(editableTag) : <div>'tag已被删除'</div>}
+      <Wrapper>
+        {editableTag ?  tagContent(editableTag) : <div className={'alert'}>删除成功!!</div>}
+      </Wrapper>
+
     </Layout>
   )
 }
