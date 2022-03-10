@@ -39,6 +39,8 @@ const Item = styled.div`
 const Tip = styled.div ` 
   color: white;
   text-align: center;
+  font-size: 16px;
+  margin-top: 16px;
 `
 function Statistic() {
   const [category, setCategory] = useState<('-' | '+')>('-');
